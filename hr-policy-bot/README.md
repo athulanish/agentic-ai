@@ -1,0 +1,11 @@
+## Project 1 - HR Policy RAG Bot (`hr-policy-bot/`)
+
+An upgrade of Build 2's RAG pattern using LangChain and Chroma instead of raw cosine similarity. Answers employee questions using only a company policy document (a realistic ~40-page fictional employee handbook, 17 sections, written specifically to include cross-references between sections so retrieval could be properly stress-tested).
+
+**Stack:** LangChain (LCEL), `langchain-openai`, `langchain-chroma`, Chroma as a persisted vector store instead of an in-memory list, so embeddings are computed once and reused across runs instead of recalculated every time the script executes.
+
+**What it does well:** single-topic questions, even ones needing multiple chunks from the same section (e.g. "what's the remote work policy"), get pulled together correctly and answered accurately.
+
+**Bug I hit and what it taught me:** asked a genuinely hard question requiring two unrelated sections at once, "if I'm on a Performance Improvement Plan and also in probation, which process applies," and the bot correctly refused to guess rather than hallucinate (the system prompt explicitly instructs it to say "I don't know" when context is insufficient, which worked as intended). But the retrieval itself came up short, `k=3` wasn't enough to pull both the probation section and the PIP section into context at once, since the two topics share almost no vocabulary overlap for a similarity search to latch onto. This is the real limitation of plain RAG: a correct refusal still means retrieval failed to surface what was actually needed. Raising k to 6 alone didn't fix it, the bot still refused to answer. Its a limitation I have hit and need to try other possible remedies to fix it. 
+
+**Also learned:** LCEL chains are shape-sensitive, `chain.invoke(question)` works because the string gets passed to every branch of the chain's input dictionary at once, but `chain.invoke({"question": question})` breaks it, since the retriever branch then tries to run a similarity search on a dictionary instead of text.
