@@ -1,0 +1,72 @@
+ATHUL ANISH
++918056109766 | athulanish6@gmail.com 
+CORE COMPETENCIES
+*  BI & Visualization: Power BI (dashboards, DAX, KPIs), Tableau, Advanced Excel (Power Query, Pivot Tables, VBA automation)
+*  Analytics & Modelling: Time Series Forecasting, Machine Learning (ARIMA, Random Forest, Regression, Monte Carlo Simulation), Classification, Predictive Analytics, Feature Engineering, EDA (Exploratory Data Analysis)
+* Collaboration & Communication: Stakeholder reporting, requirements gathering, cross-functional team leadership
+* Data Governance: Data quality audits, validation workflows, GDPR compliance, lineage tracking, documentation
+EXPERIENCE 
+Data Analyst / MIS Specialist
+Aston University Engineering Academy | Birmingham, UK	Dec 2024 – Oct 2025
+* Designed and maintained data pipelines for student and staff datasets, ensuring timely, accurate, and secure data integration across MIS systems.
+* Built BI dashboards and KPI trackers using Power Query and Excel, enabling leadership teams to make data-driven strategic decisions.
+* Implemented data governance frameworks (GDPR-compliant) to strengthen data quality, consistency, and lineage tracking.
+* Conducted root cause analysis of data quality issues, applying validation and reconciliation techniques to enhance reliability.
+* Collaborated with cross-functional stakeholders to translate reporting requirements into scalable analytics solutions.
+Key Impact: Reduced reporting turnaround by 40% through automation and streamlined ETL processes.
+Data Manager
+Futura Learning Partnership | Bristol, UK 	September 2024 – November 2024 (Contract)
+* Oversaw enterprise-level MIS platforms across 20+ organizations, ensuring standardization, accuracy, and availability of critical datasets. 
+* Developed reporting workflows and visualizations (Excel/BI) to monitor KPIs for operations, finance, and performance.
+* Implemented data governance and compliance controls for handling sensitive datasets.
+* Provided out-of-hours support for data operations, ensuring uptime and continuity of services.
+Key Impact: Automated monthly performance reporting, cutting manual processes by 30%.
+
+Data and Exams Manager
+Eden Boys Leadership Academy | Birmingham, UK 	August 2024 – September 2024 (Contract)
+* Managed multi-system MIS integrations (SIMS, NOVA-T, SISRA, FFT) to centralize and validate student and staff data.
+* Conducted performance, attendance, and behavioural analytics, producing insights that supported academic strategy.
+* Collaborate with senior leadership to analyse educational data and implement data-driven strategies to enhance student performance and academic outcomes.
+* Optimized resource allocation models (staff, timetables, classrooms) through data-driven scheduling.
+
+
+
+
+Data Officer
+WMG Academy Trust | Coventry, UK 	November 2022 – February 2024 
+* Developed “One-Touch Analytics” dashboard solution, creating self-serve reporting capabilities across the organization. 
+* Built data validation and cleaning protocols across HR and MIS systems, reducing error rates by 30%. 
+* Conducted admissions data analysis, uncovering demographic trends that improved recruitment efficiency by 25%. 
+* Delivered executive-level reports and BI insights that guided leadership decisions.
+Additional Experiences: Business Development and Sales Executive at software and retail, robotics and data science engineer and trainer for clients, and various other part times supporting manufacturing and hospitality industries.  
+TECHNICAL PROJECTS
+Financial Data Analysis
+Scikit Learn, Python, Excel | Birmingham, UK	
+Working with Pandas, Numpy, Matplotlib and Time Series Forecasting to predict performance of top 50 companies. Handled missing values, conducted exploratory data analysis, moving averages, volatility, relative strength index to understand various factors from the dataset
+Exchange Rate Analysis
+Machine Learning, Python, Excel | Birmingham, UK	
+Pandas, NumPy, Scikit-learn, Matplotlib, and Seaborn. Handled missing values, Time Series Analysis, ARIMA
+
+Data Science vs Crypto Volatility 
+Python | EDA | Time Series Analysis
+In depth analysis of performance of various cryptos since the beginning using time series analysis. Moving average, relative strength index, risk assessment, monte carlo simulation, linear regression and random forest model building for performance evaluation.
+HIGH IMPACT KPIS
+> Successfully rectified over 1000 data errors within a tight deadline of 8 days, preventing compliance failures.
+> Recognized for technical adaptability, exceptional approachability, flexibility and efficiency.  
+> Reduced data errors by 30% through validation frameworks. 
+> Improved reporting efficiency by 40% via automation and process redesign.
+> Quick learner of data analysis tools and technologies including SQL, SAS, Tableau and PowerBI
+> Proficient at cross functional operation, team building, management and communication. 
+EDUCATION
+Masters in Data Science 
+Loughborough University | Loughborough, UK	Oct 2022
+Bachelors in Mechanical Engineering 
+SRM University | Chennai, India	May 2018
+
+CERTIFICATIONS
+1. Certificate in GDPR and Data Protection (CPD Standards Office)
+2. Analyzing and Visualizing Data with Microsoft Power BI (Coursera)
+3. Cybersecurity Training for Schools (NCSC, TES)
+4. Post Graduate Program in Data Analytics (Imarticus Learning, Diploma certification)	
+
+
