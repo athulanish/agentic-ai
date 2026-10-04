@@ -1,5 +1,5 @@
 def main():
-    print("Hello from agentic-ai!")
+    print("Hello from audio-notes-agent!")
 
 
 if __name__ == "__main__":

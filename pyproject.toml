@@ -8,3 +8,10 @@ dependencies = [
     "numpy>=2.5.3",
     "openai>=3.14.1",
 ]
+
+[tool.uv.workspace]
+members = [
+    "hr-policy-bot",
+    "nemo-guardrailed-bot",
+    "audio-notes-agent",
+]
