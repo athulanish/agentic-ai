@@ -15,3 +15,4 @@ members = [
     "nemo-guardrailed-bot",
     "audio-notes-agent",
 ]
+exclude = ["data-analysis-crew"]

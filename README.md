@@ -50,3 +50,15 @@ A customer support bot for a fictional company, built two ways to show a real be
 **Bug I hit building it:** forgot to port the system prompt's factual grounding into the guardrails config, which only had input/output policy checks, no instructions about what the company actually does. Guardrails correctly blocked off-topic and manipulative messages, but the bot hallucinated vague, generic company info for legitimate questions, proof that safety enforcement and factual grounding are two separate jobs, passing every guardrail check doesn't stop a model from confidently making things up if it was never told the facts. Fixed by adding a `general` instructions block to `config.yml`.
 
 **Interesting side effect after the fix:** the same off-topic question (the France one) started getting handled by the main model's own redirect instead of the guardrails' canned block message, two independent layers catching the same problem through different mechanisms depending on phrasing.
+
+## Project 3 - Audio Meeting Notes Agent (`audio-notes-agent/`)
+
+Transcribes a recorded meeting and extracts structured, schema-validated notes (action items, decisions, risks) using Pydantic. Deliberately stress-tested with a messy, multi-speaker recording and surfaced three distinct failure modes: transcription errors on spoken dollar amounts, a silently dropped action item (a recall gap invisible in valid-looking JSON), and a hallucinated year inside an otherwise correct date string.
+
+[Full write-up, including the pipeline, model choice, and all three bugs](./audio-notes-agent/README.md)
+
+## Project 4 - Data Analysis Crew (`data-analysis-crew/`)
+
+A three-agent CrewAI pipeline (SQL analyst, insights analyst, executive communicator) run against a synthetic sales database with a planted anomaly. The first run found the right region and the right numbers but drew the wrong conclusion, because comparing quarterly totals hid that the dip had already recovered. Fixing the task granularity corrected the narrative.
+
+[Full write-up, including framework comparison and the dependency conflict](./data-analysis-crew/README.md)
