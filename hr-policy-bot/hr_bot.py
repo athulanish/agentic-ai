@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+load_dotenv()
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_chroma import Chroma
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -17,7 +19,7 @@ print(f"Number of chunks: {len(chunks)}")
 # Step 3: Create embeddings for each chunk and store in chroma vector store
 embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
 vector_store = Chroma.from_texts(texts=chunks, embedding=embeddings, persist_directory="./chroma_db")
-retrieve = vector_store.as_retriever(search_kwargs={"k": 6})
+retrieve = vector_store.as_retriever(search_kwargs={"k": 3})
 
 # Step 4: the prompt, deliberatively restrictive, this is an HR bot, it should refuse to not go off script
 prompt = ChatPromptTemplate.from_template("""
@@ -42,7 +44,12 @@ chain = (
     | StrOutputParser()
 )
 
-question = "If I'm on a Performance Improvement Plan and I'm also in my probation period, which process applies?"
-answer = chain.invoke(question)
-print(answer)
-
+questions = [
+    "I'm in my probation period and want to resign. How much notice do I need to give, and would that change if I did it after probation as a Band 3 employee?",
+    "How much can I claim for meals on a business trip, and what is the hotel cap in a standard city?",
+    "If I'm on a Performance Improvement Plan and also in my probation period, which process applies?",
+]
+for q in questions:
+    print("Q:", q)
+    print("GOT:", chain.invoke(q))
+    print("-" * 60)

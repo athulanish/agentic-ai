@@ -35,7 +35,7 @@ An upgrade of Build 2's RAG pattern using LangChain and Chroma instead of raw co
 
 **What it does well:** single-topic questions, even ones needing multiple chunks from the same section (e.g. "what's the remote work policy"), get pulled together correctly and answered accurately.
 
-**Bug I hit and what it taught me:** asked a genuinely hard question requiring two unrelated sections at once, "if I'm on a Performance Improvement Plan and also in probation, which process applies," and the bot correctly refused to guess rather than hallucinate (the system prompt explicitly instructs it to say "I don't know" when context is insufficient, which worked as intended). But the retrieval itself came up short, `k=3` wasn't enough to pull both the probation section and the PIP section into context at once, since the two topics share almost no vocabulary overlap for a similarity search to latch onto. This is the real limitation of plain RAG: a correct refusal still means retrieval failed to surface what was actually needed. Raising k to 6 alone didn't fix it, the bot still refused to answer. Its a limitation I have hit and need to try other possible remedies to fix it. 
+**Bug I hit, and what I got wrong at first:** a question spanning two sections (probation and Performance Improvement Plans) returned "I don't know." I first blamed semantic search for not connecting unrelated topics, and added a MultiQueryRetriever. Later I found the real cause: `Chroma.from_texts()` appends chunks on every run, so repeated runs filled the vector store with duplicate copies, and the top-k results were the same few chunks repeated. After adding a guard so chunks are only inserted into an empty collection, plain `k=3` retrieval found both sections. Lesson: inspect what was retrieved (and what is in the store) before changing the retrieval strategy.
 
 **Also learned:** LCEL chains are shape-sensitive, `chain.invoke(question)` works because the string gets passed to every branch of the chain's input dictionary at once, but `chain.invoke({"question": question})` breaks it, since the retriever branch then tries to run a similarity search on a dictionary instead of text.
 
@@ -62,3 +62,9 @@ Transcribes a recorded meeting and extracts structured, schema-validated notes (
 A three-agent CrewAI pipeline (SQL analyst, insights analyst, executive communicator) run against a synthetic sales database with a planted anomaly. The first run found the right region and the right numbers but drew the wrong conclusion, because comparing quarterly totals hid that the dip had already recovered. Fixing the task granularity corrected the narrative.
 
 [Full write-up, including framework comparison and the dependency conflict](./data-analysis-crew/README.md)
+
+## Project 5 - HR Policy Bot in LangGraph (`hr-policy-bot-langgraph/`)
+
+The Project 1 HR bot rebuilt in LangGraph for a like-for-like comparison with LangChain, using the same handbook, model, and prompt. Swapping frameworks changed nothing about answer quality, and both made the same unsupported claim on a question the handbook doesn't answer. Adding a grading node with a rewrite-and-retry loop, which a linear chain can't express, made the bot refuse that question and refer the employee to HR.
+
+[Full write-up, including the comparison table, cost, and limitations](./hr-policy-bot-langgraph/README.md)
