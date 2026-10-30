@@ -1,0 +1,7 @@
+pandas
+openpyxl
+openai>=1.40
+sounddevice
+soundfile
+numpy
+python-dotenv
